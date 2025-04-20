@@ -1,37 +1,27 @@
-from langchain_core.prompts import ChatPromptTemplate
 from langchain_groq import ChatGroq
-from prompts import defense_system
-from config import groq_api_key
+from langchain.prompts import ChatPromptTemplate
+from config.prompts import plaintiff_additional_prompt
+from config.config import groq_api_key
 
-class DefenseLawyerAgent:
-    def __init__(self, system_prompt: str, groq_api_key: str):
-        self.system_prompt = system_prompt
+
+class PlaintiffAgent:
+    def __init__(self, groq_api_key: str):
         self.llm = ChatGroq(
-            api_key=groq_api_key,
-            model_name="llama3-70b-8192",
+            api_key=groq_api_key, 
+            model_name="llama3-8b-8192",
             max_tokens=256,
             temperature=0.7
         )
-         
-    
-    def get_opening_statement(self , case_contextANDprosecutor_opening: str , additional_prompt: str = "") -> str:
-        system_prompt = self.system_prompt + additional_prompt
-        prompt_template = ChatPromptTemplate.from_messages([
-            ("system", system_prompt),
-            ("human", "{input}")
-        ])
-        chain = prompt_template | self.llm
-        opening_statement = chain.invoke({"input": case_contextANDprosecutor_opening}).content    
-        return opening_statement
-    
+
+
     def format_prompt(self , state: dict) -> str:
 
         prompt = f"CASE DESCRIPTION:\n REGARDING ANY INFO ABOUT THE CASE, REFER THIS:\n {state['case_context']}"
         prompt += "\n\n\n\nCONVERSATION OF THE COURT TRIAL TILL NOW:\n"
 
-        for _, dict in enumerate(state["conversation"][:-1]):
+        for _, dict in enumerate(state["conversation"][-4:-1]):
             for key, value in dict.items():
-                speaker = "YOU-(Defense Lawyer)" if key == "defense_lawyer" else key
+                speaker = "YOU-(Plaintiff)" if key == "plaintiff" else key
                 prompt += f"-> {speaker} : {value}\n" 
         last_responder , last_response = list(state["conversation"][-1].items())[0]
         prompt += f"""
@@ -43,21 +33,23 @@ class DefenseLawyerAgent:
         {state["proceedings"][1]["message"]}\n
         PHASE OF THE COURT HEARING - {state["proceedings"][2]["phase_of_court_hearing"]}
 """        
-        prompt += "SPECIAL NOTE:- '''Your response must reflect what has already unfolded in the trial and should contribute to maintaining the continuity and logical flow of the courtroom proceedings.'''"
         prompt += "\n\nBASED ON THE CONVERSATION TILL NOW (paying closer attention to the last statement) AND THE MESSAGE FROM THE COURT COORDINATOR\n PRESENT YOUR STATEMENT IN FRONT OF THE COURT :-"
         return prompt 
-
+     
     def __call__(self, state: dict) -> dict:
+        system_prompt = state["system_prompts"][0]["plaintiff_system"]
+        system_prompt += f"\n\n\n {plaintiff_additional_prompt}"
         user_prompt = self.format_prompt(state)
         prompt_template = ChatPromptTemplate.from_messages([
-            ("system", self.system_prompt),
+            ("system", system_prompt),
             ("human", "{input}")
         ])
         chain = prompt_template | self.llm
         response = chain.invoke({"input": user_prompt}).content
-        state["conversation"].append({"defense_lawyer" : response})
+        state["conversation"].append({"plaintiff" : response})
         return state
+         
 
 
 
-defense_lawyer = DefenseLawyerAgent(defense_system , groq_api_key)
+plaintiff = PlaintiffAgent(groq_api_key)

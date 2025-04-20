@@ -1,5 +1,5 @@
-from prosecution_lawyer import prosecution_lawyer
-from defense_lawyer import defense_lawyer
+from agents.prosecution_lawyer import prosecution_lawyer
+from agents.defense_lawyer import defense_lawyer
 
 
 prosecution_additional_prompt = """

@@ -1,14 +1,14 @@
 from typing import TypedDict, List, Optional, Dict
 from langgraph.graph import StateGraph , START , END
-from case_analyser import analyser
-from dynamic_prompt_generation import dynamic_prompting
-from opening_statements import open_the_court_hearing
-from courtRoomCoordinator import courtroom_coordinator
-from prosecution_lawyer import prosecution_lawyer
-from defense_lawyer import defense_lawyer
-from plaintiff import plaintiff
-from defendant import defendant
-from judge import judge
+from agents.case_analyser import analyser
+from agents.dynamic_prompt_generation import dynamic_prompting
+from agents.opening_statements import open_the_court_hearing
+from agents.courtRoomCoordinator import courtroom_coordinator
+from agents.prosecution_lawyer import prosecution_lawyer
+from agents.defense_lawyer import defense_lawyer
+from agents.plaintiff import plaintiff
+from agents.defendant import defendant
+from agents.judge import judge
 
 class CourtroomState(TypedDict):
     textual_case_description: str

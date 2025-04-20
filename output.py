@@ -3,11 +3,11 @@ import os
 from graph import courtroom_execution , CourtroomState
 
 # Load input CSV
-df = pd.read_csv("cases.csv")
+df = pd.read_csv("./utility_files/cases.csv")
 print(df.head(2))
 
 # Load previously saved results if they exist
-output_file = "verdicts.csv"
+output_file = "./utility_files/verdicts.csv"
 if os.path.exists(output_file):
     results_df = pd.read_csv(output_file)
     processed_ids = set(results_df["ID"].tolist())

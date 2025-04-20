@@ -1,7 +1,7 @@
 from langchain_groq import ChatGroq
 from langchain.prompts import ChatPromptTemplate
-from prompts import defendant_additional_prompt
-from config import groq_api_key
+from config.prompts import defendant_additional_prompt
+from config.config import groq_api_key
 
 
 class DefendantAgent:

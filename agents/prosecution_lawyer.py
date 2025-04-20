@@ -1,7 +1,7 @@
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_groq import ChatGroq
-from prompts import prosecution_system
-from config import groq_api_key
+from config.prompts import prosecution_system
+from config.config import groq_api_key
 
 class ProsecutionLawyerAgent:
     def __init__(self, system_prompt: str, groq_api_key: str):

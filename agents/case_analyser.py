@@ -1,7 +1,7 @@
 from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate
-from prompts import case_analysing_prompt
-from config import groq_api_key
+from config.prompts import case_analysing_prompt
+from config.config import groq_api_key
 
 
 def analyser(state: dict) -> dict:

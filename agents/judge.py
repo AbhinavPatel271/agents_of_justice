@@ -1,8 +1,8 @@
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_groq import ChatGroq
-from prompts import judge_system
+from config.prompts import judge_system
 import time
-from config import groq_api_key
+from config.config import groq_api_key
 
 class JudgeAgent:
     def __init__(self, system_prompt: str, groq_api_key: str):
