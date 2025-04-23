@@ -8,15 +8,15 @@
   Entry point - <a href="graph.py"> graph.py </a> - This file defines the structure of the courtroom: THE GRAPH OF THE COURTROOM SIMULATION 
 </br>Agents/tools used in graph.py:
   <ul>
-    <li> <a href="case_analyser.py"> case_analyser.py </a> </li>
-    <li> <a href="dynamic_prompt_generation.py"> dynamic_prompt_generation.py </a></li>
-    <li> <a href="courtRoomCoordinator.py"> courtRoomCoordinator.py </a> </li>
-    <li> <a href="prosecution_lawyer.py"> prosecution_lawyer.py </a> </li>
-    <li> <a href="defense_lawyer.py"> defense_lawyer.py </a> </li>
-    <li> <a href="plaintiff.py"> plaintiff.py </a> </li>
-    <li> <a href="defendant.py"> defendant.py </a> </li>
-    <li> <a href="judge.py"> judge.py </a> </li>
-    <li> <a href="opening_statements.py"> opening_statements.py </a> </li>
+    <li> <a href="agents/case_analyser.py"> case_analyser.py </a> </li>
+    <li> <a href="agents/dynamic_prompt_generation.py"> dynamic_prompt_generation.py </a></li>
+    <li> <a href="agents/courtRoomCoordinator.py"> courtRoomCoordinator.py </a> </li>
+    <li> <a href="agents/prosecution_lawyer.py"> prosecution_lawyer.py </a> </li>
+    <li> <a href="agents/defense_lawyer.py"> defense_lawyer.py </a> </li>
+    <li> <a href="agents/plaintiff.py"> plaintiff.py </a> </li>
+    <li> <a href="agents/defendant.py"> defendant.py </a> </li>
+    <li> <a href="agents/judge.py"> judge.py </a> </li>
+    <li> <a href="agents/opening_statements.py"> opening_statements.py </a> </li>
   </ul>
    <p>All system prompts - <a href="config/prompts.py"> prompts.py </a> </p>
    <p>For generating outputs of the competition : <a href="output.py"> output.py </a> </p>
