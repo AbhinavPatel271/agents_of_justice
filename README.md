@@ -2,7 +2,7 @@
 <p><a href="https://docs.google.com/document/d/1A4M_RekCB74_SG6VDbJOCRz8wJuf4t9P1gz3PHm8apA/edit?usp=sharing"> Google form link </br>  </a> - containing the approach to the project</p>
 
 <h3>Task:</h3>
-<p>To determine whether an appeal made by the plaintiff in a case would be passed or not with the help of a courtroom simulation achieved via AI agents. The <a href="utility_files/cases.csv"> cases.csv file contains textual case descriptions on which the prediction is to be done.</a></p>
+<p>To determine whether an appeal made by the plaintiff in a case would be passed or not with the help of a courtroom simulation achieved via AI agents. The <a href="utility_files/cases.csv"> cases.csv </a> file contains textual case descriptions on which the prediction is to be done. </p>
 <h3>File structure:</h3>
 <p>
   Entry point - <a href="graph.py"> graph.py </a> - This file defines the structure of the courtroom: THE GRAPH OF THE COURTROOM SIMULATION 
