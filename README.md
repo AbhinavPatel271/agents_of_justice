@@ -1,20 +1,22 @@
 # agents_of_justice
-<p><a href="https://docs.google.com/document/d/1A4M_RekCB74_SG6VDbJOCRz8wJuf4t9P1gz3PHm8apA/edit?usp=sharing"> Google form link </br>  </a> - containing the approach </p>
+<p><a href="https://docs.google.com/document/d/1A4M_RekCB74_SG6VDbJOCRz8wJuf4t9P1gz3PHm8apA/edit?usp=sharing"> Google form link </br>  </a> - containing the approach to the project</p>
 
+<h3>Task:</h3>
+<p>To determine whether an appeal made by the plaintiff in a case would be passed or not with the help of a courtroom simulation achieved via AI agents. The <a href="utility_files/cases.csv"> cases.csv file contains textual case descriptions on which the prediction is to be done.</a></p>
 <h3>File structure:</h3>
 <p>
   Entry point - <a href="graph.py"> graph.py </a> - This file defines the structure of the courtroom: THE GRAPH OF THE COURTROOM SIMULATION 
 </br>Agents/tools used in graph.py:
   <ul>
-    <li> <a href="agents/case_analyser.py"> case_analyser.py </a> </li>
-    <li> <a href="agents/dynamic_prompt_generation.py"> dynamic_prompt_generation.py </a></li>
-    <li> <a href="agents/courtRoomCoordinator.py"> courtRoomCoordinator.py </a> </li>
-    <li> <a href="agents/prosecution_lawyer.py"> prosecution_lawyer.py </a> </li>
-    <li> <a href="agents/defense_lawyer.py"> defense_lawyer.py </a> </li>
-    <li> <a href="agetns/plaintiff.py"> plaintiff.py </a> </li>
-    <li> <a href="agents/defendant.py"> defendant.py </a> </li>
-    <li> <a href="agents/judge.py"> judge.py </a> </li>
-    <li> <a href="agents/opening_statements.py"> opening_statements.py </a> </li>
+    <li> <a href="case_analyser.py"> case_analyser.py </a> </li>
+    <li> <a href="dynamic_prompt_generation.py"> dynamic_prompt_generation.py </a></li>
+    <li> <a href="courtRoomCoordinator.py"> courtRoomCoordinator.py </a> </li>
+    <li> <a href="prosecution_lawyer.py"> prosecution_lawyer.py </a> </li>
+    <li> <a href="defense_lawyer.py"> defense_lawyer.py </a> </li>
+    <li> <a href="plaintiff.py"> plaintiff.py </a> </li>
+    <li> <a href="defendant.py"> defendant.py </a> </li>
+    <li> <a href="judge.py"> judge.py </a> </li>
+    <li> <a href="opening_statements.py"> opening_statements.py </a> </li>
   </ul>
    <p>All system prompts - <a href="config/prompts.py"> prompts.py </a> </p>
    <p>For generating outputs of the competition : <a href="output.py"> output.py </a> </p>
